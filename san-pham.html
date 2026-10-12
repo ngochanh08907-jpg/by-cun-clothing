@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sản Phẩm - By Cun Clothing Thời Trang Nữ</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/danhmuc.css"/>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><i class="fas fa-phone-alt"></i> Hotline: <a href="tel:0374538106">037 453 8106</a></span>
+      <span>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Hệ thống cửa hàng</a>
+        &nbsp;|&nbsp;
+        <a href="dang-ky.html"><i class="fas fa-user"></i> Đăng ký thành viên</a>
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <a href="trang-chu.html" class="logo">
+        <!-- Chèn ảnh logo vào đây -->
+        <img src="anh/baner tranggchu.png" alt="By Cun Logo" class="logo-img" onerror="this.style.display='none'" />
+        <span class="logo-text">By Cun Clothing</span>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+        <button type="button" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+        <a href="gio-hang.html"><i class="fas fa-shopping-bag"></i><span class="badge">2</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li class="has-dropdown">
+          <a href="san-pham.html" class="active">Thời Trang Nữ <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="ao-kieu-nu.html">Áo Kiểu Nữ</a></li>
+            <li><a href="ao-khoac-da.html">Áo Khoác Dạ</a></li>
+            <li><a href="vay.html">Váy &amp; Đầm</a></li>
+          </ul>
+        </li>
+        <li><a href="tin-tuc.html">Tin Tức</a></li>
+        <li><a href="dang-ky.html">Đăng Ký</a></li>
+        <li><a href="gio-hang.html">Giỏ Hàng</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Banner trang -->
+<div class="page-banner">
+  <!-- Chèn ảnh banner trang sản phẩm vào đây -->
+  <img src="anh/Banner thời trang nữ pastel By Cun.png" alt="Banner Thời Trang Nữ" class="page-banner-img" onerror="this.style.display='none'" />
+  <div class="container">
+    <h1>Thời Trang Nữ </h1>
+    <p class="breadcrumb-bar">
+      <a href="trang-chu.html">Trang chủ</a> › Thời Trang Nữ
+    </p>
+  </div>
+</div>
+
+<!-- ===== NỘI DUNG CHÍNH ===== -->
+<div class="container" style="padding: 0 15px 60px;">
+  <div class="row">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="col-lg-3 sidebar">
+
+      <!-- Danh mục sản phẩm – liên kết đến từng trang con -->
+      <div class="dm-sidebar-box">
+        <h3 class="dm-sidebar-title">Danh Mục Sản Phẩm</h3>
+        <ul class="dm-cat-list">
+          <li class="dm-active">
+            <a href="san-pham.html"><i class="fas fa-angle-right"></i> Tất Cả Sản Phẩm</a>
+          </li>
+          <li><a href="ao-kieu-nu.html">    <i class="fas fa-angle-right"></i> Áo Kiểu Nữ</a></li>
+          <li><a href="ao-khoac-da.html"> <i class="fas fa-angle-right"></i> Áo Khoác Dạ</a></li>
+          <li><a href="vay.html">  <i class="fas fa-angle-right"></i> Váy </a></li>
+        </ul>
+      </div>
+
+      <!-- Khoảng giá -->
+      <div class="dm-sidebar-box">
+        <h3 class="dm-sidebar-title">Khoảng Giá</h3>
+        <ul class="dm-cat-list">
+          <li><a href="#"><i class="fas fa-angle-right"></i> 200.000 – 500.000đ</a></li>
+          <li><a href="#"><i class="fas fa-angle-right"></i> 500.000 – 1.000.000đ</a></li>
+          <li><a href="#"><i class="fas fa-angle-right"></i> Trên 1.000.000đ</a></li>
+        </ul>
+      </div>
+
+    </aside><!-- /sidebar -->
+
+    <!-- ===== NỘI DUNG SẢN PHẨM ===== -->
+    <section class="col-lg-9 main-content">
+
+      <!-- Danh mục dạng card ảnh – lưới tự tạo -->
+      <div class="section-heading" style="margin-bottom:18px;">
+        <h2>Khám Phá Theo Danh Mục</h2>
+      </div>
+      <div class="cat-card-grid">
+        <a href="ao-kieu-nu.html"     class="cat-card"><span>Áo Kiểu Nữ</span></a>
+        <a href="ao-khoac-da.html"  class="cat-card"><span>Áo Khoác Dạ</span></a>
+        <a href="vay.html"   class="cat-card"><span>Váy</span></a>
+         <a href="quan-nu.html"   class="cat-card"><span>Quần</span></a>
+      </div>
+
+      <!-- Lưới sản phẩm tổng hợp – 4 cột, tự tạo (sp-grid từ style.css) -->
+      <div class="section-heading" style="margin-bottom:18px;">
+        <h2>Tất Cả Sản Phẩm</h2>
+        <a href="san-pham.html" class="see-all">Xem thêm →</a>
+      </div>
+
+      <div class="sp-grid">
+
+        <!-- SP 1 -->
+        <div class="product-card">
+          <!-- Chèn ảnh váy công sở vào đây -->
+          <img src="/anh/vay-cong-so.jpg" alt="Sét Váy Công Sở" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Set Váy Công Sở </h4>
+            <p class="price">1150.000đ <del>1450.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 2 -->
+        <div class="product-card">
+          <!-- Chèn ảnh set váy thiết kế vào đây -->
+          <img src="anh/set-vay-thiet-ke-chuan-phong-cach-chau-au.jpg" alt="Vay Thiết Kế" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Set Váy Thiết Kế</h4>
+            <p class="price">720.000đ <del>990.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 3 -->
+        <div class="product-card">
+          <!-- Chèn ảnh quần vào đây -->
+          <img src="anh/quan-chat-vai-line-mem-mat.jpg" alt="Quần Vải Linen " onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Quần Vải Linen </h4>
+            <p class="price">240.000đ</p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 4 -->
+        <div class="product-card">
+          <!-- Chèn ảnh áo trễ vai vào đây -->
+          <img src="anh/ao-tre-vai-beo-voan-to-tay-bong-xep-tang.jpg" alt="Áo Trễ Vai" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Áo Trễ Vai Voan Bèo Tầng</h4>
+            <p class="price">360.000đ <del>600.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 5 -->
+        <div class="product-card">
+          <!-- Chèn ảnh áo kiểu nữ vào đây -->
+          <img src="/anh/ao-luoi-2s-dieu-da-xinh.jpg" alt="Áo 2s điệu đà " onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Áo 2s điệu đà nhẹ nhàng </h4>
+            <p class="price">480.000đ <del>750.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 6 -->
+        <div class="product-card">
+          <!-- Chèn ảnh set váy thiết kế vào đây -->
+          <img src="/anh/set-ren-vie-tieu-thu-dai-cac-kem-no-nhung.jpg" alt="Set Áo Váy" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Set Áo Chân Váy Dạ Tweed </h4>
+            <p class="price">750.000đ <del>900.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        <!-- SP 7 -->
+        <div class="product-card">
+          <!-- Chèn ảnh áo kiểu nữ vào đây -->
+          <img src="/anh/ao-kieu-phap-tinh-te-thiet-ke-no-co-halter-danh-cho-nu.jpg" alt="Áo Kiểu Nữ" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Áo Kiểu Pháp Thiết Kế</h4>
+            <p class="price">520.000đ <del>810.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+        
+        <!-- SP 8 -->
+        <div class="product-card">
+          <!-- Chèn ảnh váy vào đây -->
+          <img src="/anh/váy-bong-co-no-tieu-thu.jpg" alt="váy tiểu thư" onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Váy tiểu thư sang trọng</h4>
+            <p class="price">450.000đ <del>700.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+         <!-- SP 9 -->
+        <div class="product-card">
+          <!-- Chèn ảnh áo vào đây -->
+          <img src="/anh/ao-yem-hai-lop-chat-to-nhe-phong-cach-han.jpg" alt="Áo yếm " onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Áo Yếm 2 Lớp Kèm Nơ Xinh</h4>
+            <p class="price">480.000đ</p><del>720.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+                 <!-- SP 10 -->
+        <div class="product-card">
+          <!-- Chèn ảnh váy vào đây -->
+          <img src="/anh/set-ren-vie-tieu-thu-dai-cac-kem-no-nhung.jpg" alt="Set ren tiểu thư " onerror="this.style.display='none'"/>
+          <div class="product-info">
+            <h4>Set Ren Tiểu Thư Kèm Nơ Nhung</h4>
+            <p class="price">620.000đ</p><del>820.000đ</del></p>
+            <a href="gio-hang.html" class="btn-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+
+      </div><!-- /sp-grid -->
+
+      <!-- Phân trang -->
+      <div class="pagination-bar" style="display:flex;justify-content:center;gap:8px;margin-top:28px;">
+        <a href="#" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-size:.88rem;color:var(--dark);font-weight:600;">‹</a>
+        <a href="#" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--primary);color:#fff;border:1px solid var(--primary);font-size:.88rem;font-weight:600;">1</a>
+        <a href="#" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-size:.88rem;color:var(--dark);font-weight:600;">2</a>
+        <a href="#" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-size:.88rem;color:var(--dark);font-weight:600;">3</a>
+        <a href="#" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-size:.88rem;color:var(--dark);font-weight:600;">›</a>
+      </div>
+
+    </section><!-- /col-lg-9 -->
+  </div><!-- /row -->
+</div><!-- /container -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <!-- Chèn ảnh logo footer vào đây -->
+        <img src="images/logo-white.png" alt="BYCUN" class="footer-logo" onerror="this.style.display='none'"/>
+        <p class="footer-brand">By Cun </p>
+
+      </div>
+      <div class="footer-col">
+        <h4>Danh Mục</h4>
+        <ul>
+          <li><a href="ao-kieu-nu.html">Áo Kiểu Nữ</a></li>
+          <li><a href="ao-khoac-da.html">Áo Khoác Dạ</a></li>
+          <li><a href="vay.html">Váy</a></li>
+          <li><a href="quan-nu.html">Quần nữ</a></li>
+          <li><a href="set-vay.html">Set Váy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Chính Sách</h4>
+        <ul>
+          <li><a href="#">Đổi trả hàng</a></li>
+          <li><a href="#">Bảo mật thông tin</a></li>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+          <li><a href="#">Hướng dẫn mua hàng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Minh Khai,Tương Mai, TP.HN</p>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:0374538106">037 453 8106</a></p>
+        <p><i class="fas fa-envelope"></i> info@bycun.vn</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.sz').forEach(s => {
+    s.addEventListener('click', function() {
+      document.querySelectorAll('.sz').forEach(x => x.classList.remove('on'));
+      this.classList.add('on');
+    });
+  });
+</script>
+</body>
+</html>

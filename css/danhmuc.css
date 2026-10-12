@@ -1,0 +1,346 @@
+/* ================================================
+   danhmuc.css – CSS riêng cho trang danh mục con
+   ================================================ */
+/* ---- Page Banner (hero banner trang con) ---- */
+.page-banner {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #1a1a1a;
+}
+.page-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.55;
+  display: block;
+}
+.page-banner .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page-banner h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1.5px;
+  margin: 0 0 10px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+  text-align: center;
+}
+.page-banner .breadcrumb-bar {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+  text-align: center;
+}
+.page-banner .breadcrumb-bar a {
+  color: #c8a96e;
+  text-decoration: none;
+}
+.page-banner .breadcrumb-bar a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .page-banner { height: 180px; }
+  .page-banner h1 { font-size: 1.6rem; }
+}
+
+
+/* ---- Sidebar menu danh mục ---- */
+.dm-sidebar-box {
+  background: #faf8f4;
+  border: 1px solid #e8e0d0;
+  border-radius: 10px;
+  padding: 22px 20px;
+  margin-bottom: 20px;
+}
+.dm-sidebar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c8a96e;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* Danh sách menu */
+.dm-cat-list { list-style: none; margin: 0; padding: 0; }
+.dm-cat-list li { border-bottom: 1px solid #ede8df; }
+.dm-cat-list li:last-child { border-bottom: none; }
+.dm-cat-list li a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 4px;
+  color: #444;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.18s, padding-left 0.18s;
+}
+.dm-cat-list li a i {
+  color: #c8a96e;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+.dm-cat-list li a:hover { color: #c8a96e; padding-left: 6px; }
+
+/* Mục đang active (trang hiện tại) */
+.dm-cat-list li.dm-active > a {
+  color: #c8a96e;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgba(200,169,110,0.12) 0%, transparent 100%);
+  padding-left: 8px;
+  border-radius: 4px;
+}
+.dm-cat-list li.dm-active > a i { color: #c8a96e; }
+
+/* ---- Lưới sản phẩm 4 cột (tự tạo, không Bootstrap) ---- */
+.dm-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+@media (max-width: 1199px) { .dm-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px)  { .dm-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .dm-grid { grid-template-columns: 1fr; } }
+
+/* ---- Card sản phẩm danh mục ---- */
+.dm-card {
+  border: 1px solid #e5ddd0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.dm-card:hover {
+  box-shadow: 0 10px 28px rgba(200,169,110,0.22);
+  transform: translateY(-4px);
+}
+.dm-card-img {
+  position: relative;
+  overflow: hidden;
+}
+.dm-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #ede8df;
+  display: block;
+  transition: transform 0.35s;
+}
+.dm-card:hover img { transform: scale(1.05); }
+
+/* Nhãn badge */
+.dm-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 3px;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background: #1a1a1a;
+  color: #fff;
+}
+.dm-badge.moi  { background: #1a1a1a; }
+.dm-badge.hot  { background: #c8a96e; }
+.dm-badge.sale { background: #d4556a; }
+
+/* Nút yêu thích góc phải */
+.dm-wish {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: #bbb; z-index: 2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.dm-wish:hover { color: #d4556a; }
+
+/* Thông tin card */
+.dm-card-body { padding: 12px 13px 14px; }
+.dm-card-cat {
+  font-size: 0.68rem; color: #c8a96e;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; margin-bottom: 4px;
+}
+.dm-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem; font-weight: 700;
+  color: #1a1a1a; margin-bottom: 5px;
+  line-height: 1.35; min-height: 36px;
+}
+.dm-card-sizes {
+  font-size: 0.72rem; color: #aaa;
+  letter-spacing: 1.5px; margin-bottom: 8px;
+}
+.dm-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+.dm-price { color: #d4556a; font-weight: 700; font-size: 0.96rem; }
+.dm-old   { color: #ccc; font-size: 0.78rem; text-decoration: line-through; }
+
+.dm-btn-cart {
+  display: flex; align-items: center;
+  justify-content: center; gap: 6px;
+  width: 100%;
+  background: #1a1a1a; color: #fff;
+  padding: 9px; border-radius: 5px;
+  font-size: 0.78rem; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+.dm-btn-cart:hover { background: #c8a96e; color: #fff; }
+
+/* ---- Tabs lọc loại sản phẩm ---- */
+.dm-tabs {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border-bottom: 2px solid #e5ddd0;
+  margin-bottom: 20px;
+}
+.dm-tab-btn {
+  padding: 10px 20px;
+  background: none; border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 0.87rem; font-weight: 600;
+  color: #666; cursor: pointer;
+  transition: color 0.18s;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: -2px;
+}
+.dm-tab-btn:hover { color: #c8a96e; }
+.dm-tab-btn.active { color: #a8864a; border-bottom-color: #c8a96e; font-weight: 700; }
+
+/* ---- Thanh lọc ---- */
+.dm-filter-bar {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: 10px; padding: 12px 16px;
+  background: #faf8f4; border: 1px solid #e8e0d0;
+  border-radius: 7px; margin-bottom: 22px;
+  font-size: 0.88rem;
+}
+.dm-filter-bar select {
+  padding: 6px 12px; border: 1px solid #e5ddd0;
+  border-radius: 5px; font-size: 0.84rem;
+  outline: none; cursor: pointer; background: #fff;
+  font-family: 'Nunito', sans-serif;
+}
+.dm-filter-bar select:focus { border-color: #c8a96e; }
+.dm-filter-bar label { font-weight: 600; color: #1a1a1a; font-size: 0.84rem; }
+
+/* ---- Phân trang ---- */
+.dm-paging { display: flex; justify-content: center; gap: 8px; margin: 8px 0 30px; }
+.dm-pg {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid #e5ddd0;
+  font-size: 0.88rem; font-weight: 700; color: #1a1a1a;
+  text-decoration: none; transition: all 0.18s;
+}
+.dm-pg:hover, .dm-pg.active { background: #c8a96e; color: #fff; border-color: #c8a96e; }
+.dm-pg.dis { opacity: 0.35; pointer-events: none; }
+
+/* ---- Điều hướng Prev/Next ---- */
+.dm-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 0; border-top: 1px solid #e5ddd0; margin-top: 8px;
+}
+.dm-nav a {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 22px; background: #faf8f4;
+  border: 1.5px solid #e5ddd0; border-radius: 30px;
+  font-size: 0.86rem; font-weight: 700; color: #1a1a1a;
+  text-decoration: none; transition: all 0.2s;
+}
+.dm-nav a:hover { background: #c8a96e; border-color: #c8a96e; color: #fff; }
+
+/* ---- Size filter ---- */
+.size-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.sz {
+  width: 40px; height: 36px; border: 1.5px solid #e5ddd0;
+  border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.77rem; font-weight: 700; cursor: pointer;
+  color: #1a1a1a; transition: all 0.18s;
+}
+.sz:hover { border-color: #c8a96e; color: #c8a96e; }
+.sz.on { background: #c8a96e; color: #fff; border-color: #c8a96e; }
+
+/* ---- Màu sắc filter ---- */
+.color-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 4px; }
+.clr {
+  width: 26px; height: 26px; border-radius: 50%;
+  cursor: pointer; border: 2px solid transparent;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.clr:hover { transform: scale(1.2); box-shadow: 0 0 0 3px rgba(200,169,110,0.35); }
+
+/* ---- Grid danh mục dạng card (trang san-pham.html) ---- */
+.cat-card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 10px;
+}
+@media (max-width: 991px) { .cat-card-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 575px) { .cat-card-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.cat-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: 8px;
+  border: 1.5px solid #e5ddd0;
+  background: linear-gradient(135deg, #faf8f4 0%, #f0ebe0 100%);
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.3px;
+  transition: all 0.22s;
+  overflow: hidden;
+}
+.cat-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #c8a96e;
+  transform: scaleY(0);
+  transition: transform 0.22s;
+  transform-origin: bottom;
+}
+.cat-card:hover {
+  background: #1a1a1a;
+  color: #c8a96e;
+  border-color: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+.cat-card:hover::before { transform: scaleY(1); background: #c8a96e; }
+.cat-card span { position: relative; z-index: 1; text-align: center; padding: 0 8px; }

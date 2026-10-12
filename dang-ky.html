@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng Ký Thành Viên - ByCunClothing</title>
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .register-wrap {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 15px 60px;
+    }
+    .register-header {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+    .register-header h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .register-header p { color: var(--gray); font-size: 0.92rem; margin-top: 8px; }
+    .register-header .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Tabs Bootstrap */
+    .nav-tabs .nav-link {
+      font-weight: 600;
+      color: var(--gray);
+      border-radius: 0;
+    }
+    .nav-tabs .nav-link.active {
+      color: var(--primary-dark);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    /* Alert */
+    .success-alert {
+      display: none;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    .member-benefits {
+      background: var(--light-gray);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+    .member-benefits h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .benefit-item:last-child { border-bottom: none; }
+    .benefit-item i { color: var(--primary); width: 18px; text-align: center; }
+
+    /* Form action buttons */
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+      background: var(--light-gray);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><i class="fas fa-phone-alt"></i> Hotline: <a href="tel:0374538106">037 453 8106</a></span>
+      <span><a href="dang-ky.html"><i class="fas fa-user"></i> Đăng ký thành viên</a></span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <a href="trang-chu.html" class="logo">
+        <!-- Chèn ảnh logo vào đây -->
+        <img src="/anh/Banner thời trang nữ pastel By Cun.png" alt="BYCUN Logo" class="logo-img" onerror="this.style.display='none'"/>
+        <span class="logo-text">BY CUN CLOTHING</span>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+        <button type="button" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+        <a href="gio-hang.html"><i class="fas fa-shopping-bag"></i><span class="badge">2</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li class="has-dropdown">
+          <a href="san-pham.html">Thời Trang Nữ <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="ao-kieu-nu.html">Áo Nữ</a></li>
+            <li><a href="ao-khoac-da.html">Áo Khoác Dạ </a></li>
+            <li><a href="quan-nu.html">Quần Nữ</a></li>
+            <li><a href="vay.html">Váy</a></li>
+            <li><a href="set-vay.html">Sét Váy</a></li>
+          </ul>
+        </li>
+        <li><a href="tin-tuc.html">Tin Tức</a></li>
+        <li><a href="dang-ky.html" class="active">Đăng Ký</a></li>
+        <li><a href="gio-hang.html">Giỏ Hàng</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Banner trang -->
+<div class="page-banner">
+  <div class="container">
+    <h1>Đăng Ký Thành Viên</h1>
+    <p class="breadcrumb-bar">
+      <a href="trang-chu.html">Trang chủ</a> › Đăng Ký Thành Viên
+    </p>
+  </div>
+</div>
+
+<!-- NỘI DUNG -->
+<div class="register-wrap">
+
+  <div class="register-header">
+    <h2>Tạo Tài Khoản ByCunClothing</h2>
+    <p>Đăng ký ngay để nhận ưu đãi độc quyền và tích điểm thành viên!</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Quyền lợi thành viên (Bootstrap Grid) -->
+  <div class="member-benefits">
+    <h3><i class="fas fa-crown" style="color: var(--primary);"></i> Quyền Lợi Thành Viên ByCun </h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Giảm 10% cho đơn hàng đầu tiên</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Tích điểm mỗi lần mua hàng</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Nhận thông báo sản phẩm mới nhất</div>
+      </div>
+      <div class="col-md-6">
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Ưu đãi sinh nhật đặc biệt</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Miễn phí vận chuyển từ 500k</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Ưu tiên đổi trả trong 30 ngày</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs: Đăng Ký / Đăng Nhập (Bootstrap) -->
+  <ul class="nav nav-tabs mb-4" id="authTabs">
+    <li class="nav-item">
+      <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-register">
+        <i class="fas fa-user-plus"></i> Đăng Ký
+      </button>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-login">
+        <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+      </button>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-feedback">
+        <i class="fas fa-comments"></i> Phản Hồi
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- ===== TAB ĐĂNG KÝ ===== -->
+    <div class="tab-pane fade show active" id="tab-register">
+      <div id="successMsg" class="success-alert">
+        <i class="fas fa-check-circle"></i> Đăng ký thành công! Chào mừng bạn đến với ByCunClothing.
+      </div>
+
+      <!-- FORM LỒNG TRONG BẢNG -->
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-table-wrap">
+          <table class="form-table">
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-user-circle"></i> &nbsp; Thông Tin Cá Nhân</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Họ và Tên<span class="required">*</span></td>
+                <td>
+                  <input type="text" name="fullname" placeholder="Nhập họ và tên đầy đủ" required/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Ngày Sinh<span class="required">*</span></td>
+                <td>
+                  <input type="date" id="dob" name="dob" title="Chọn ngày sinh" required/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Giới Tính</td>
+                <td>
+                  <label style="margin-right:18px; font-weight:400; cursor:pointer;">
+                    <input type="radio" name="gender" value="nu" checked style="margin-right:4px;"/> Nữ
+                  </label>
+                  <label style="margin-right:18px; font-weight:400; cursor:pointer;">
+                    <input type="radio" name="gender" value="nam" style="margin-right:4px;"/> Nam
+                  </label>
+                  <label style="font-weight:400; cursor:pointer;">
+                    <input type="radio" name="gender" value="khac" style="margin-right:4px;"/> Khác
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Số Điện Thoại<span class="required">*</span></td>
+                <td>
+                  <input type="tel" name="phone" placeholder="Ví dụ: 0912 345 678" required/>
+                </td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-lock"></i> &nbsp; Thông Tin Tài Khoản</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Email<span class="required">*</span></td>
+                <td>
+                  <input type="email" name="email" placeholder="example@email.com" required/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Tên Đăng Nhập<span class="required">*</span></td>
+                <td>
+                  <input type="text" name="username" placeholder="Tối thiểu 6 ký tự" required/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Mật Khẩu<span class="required">*</span></td>
+                <td>
+                  <input type="password" name="password" placeholder="Tối thiểu 8 ký tự" required/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Xác Nhận Mật Khẩu<span class="required">*</span></td>
+                <td>
+                  <input type="password" name="repassword" placeholder="Nhập lại mật khẩu" required/>
+                </td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-map-marker-alt"></i> &nbsp; Địa Chỉ Giao Hàng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Tỉnh / Thành Phố</td>
+                <td>
+                  <select name="city" title="Chọn tỉnh/thành phố">
+                    <option value="">-- Chọn tỉnh/thành --</option>
+                    <option>TP. Hồ Chí Minh</option>
+                    <option>Hà Nội</option>
+                    <option>Đà Nẵng</option>
+                    <option>Thanh Hóa</option>
+                    <option>Hải Phòng</option>
+                    <option>Nha Trang</option>
+                    <option>Ninh Bình</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Địa Chỉ Cụ Thể</td>
+                <td>
+                  <input type="text" name="address" placeholder="Số nhà, tên đường, phường/xã"/>
+                </td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-star"></i> &nbsp; Sở Thích &amp; Tùy Chọn</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Phong Cách Yêu Thích</td>
+                <td>
+                  <label style="margin-right:16px; font-weight:400;"><input type="checkbox" style="margin-right:4px;"/> Công sở</label>
+                  <label style="margin-right:16px; font-weight:400;"><input type="checkbox" style="margin-right:4px;"/> Dạo phố</label>
+                  <label style="margin-right:16px; font-weight:400;"><input type="checkbox" style="margin-right:4px;"/> Đi tiệc</label>
+                  <label style="margin-right:16px; font-weight:400;"><input type="checkbox" style="margin-right:4px;"/> Thể thao</label>
+                  <label style="font-weight:400;"><input type="checkbox" style="margin-right:4px;"/> Du lịch</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Nhận Thông Báo</td>
+                <td>
+                  <select name="notify" title="Chọn hình thức nhận thông báo">
+                    <option>Email &amp; SMS</option>
+                    <option>Chỉ Email</option>
+                    <option>Chỉ SMS</option>
+                    <option>Không nhận</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Giới Thiệu Bởi</td>
+                <td>
+                  <input type="text" name="referral" placeholder="Mã giới thiệu (nếu có)"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Ghi Chú</td>
+                <td>
+                  <textarea name="note" placeholder="Ghi chú thêm về sở thích mua sắm của bạn..."></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center; padding: 14px 16px;">
+                  <label style="font-size:0.87rem; cursor:pointer; font-weight:400;">
+                    <input type="checkbox" required style="margin-right:6px;"/>
+                    Tôi đồng ý với <a href="#" style="color: var(--primary);">Điều khoản sử dụng</a>
+                    và <a href="#" style="color: var(--primary);">Chính sách bảo mật</a> của BYCUNCLOTHING
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="form-actions">
+                  <button type="submit" class="btn-submit">
+                    <i class="fas fa-user-plus"></i> Đăng Ký Ngay
+                  </button>
+                  <button type="reset" class="btn-reset">
+                    <i class="fas fa-redo"></i> Nhập Lại
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    <!-- ===== TAB ĐĂNG NHẬP ===== -->
+    <div class="tab-pane fade" id="tab-login">
+      <form onsubmit="return false;">
+        <div class="form-table-wrap">
+          <table class="form-table">
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-sign-in-alt"></i> &nbsp; Đăng Nhập Tài Khoản</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Email / Tên Đăng Nhập<span class="required">*</span></td>
+                <td><input type="text" placeholder="Nhập email hoặc tên đăng nhập" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label">Mật Khẩu<span class="required">*</span></td>
+                <td><input type="password" placeholder="Nhập mật khẩu" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label">Ghi Nhớ Đăng Nhập</td>
+                <td>
+                  <label style="font-weight:400; cursor:pointer;">
+                    <input type="checkbox" style="margin-right:5px;"/> Ghi nhớ tôi trên thiết bị này
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="form-actions">
+                  <button type="submit" class="btn-submit"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</button>
+                  <a href="#" style="font-size:0.85rem; color: var(--primary); margin-left: 16px;">Quên mật khẩu?</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+
+      <!-- Đăng nhập mạng xã hội (Bootstrap) -->
+      <div class="text-center mt-3">
+        <p style="font-size:0.88rem; color: var(--gray);">Hoặc đăng nhập bằng:</p>
+        <div class="d-flex justify-content-center gap-3 mt-2">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+          <a href="#" class="btn btn-outline-danger btn-sm">
+            <i class="fab fa-google"></i> Google
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB PHẢN HỒI ===== -->
+    <div class="tab-pane fade" id="tab-feedback">
+      <form onsubmit="return false;">
+        <div class="form-table-wrap">
+          <table class="form-table">
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-comments"></i> &nbsp; Phản Hồi &amp; Góp Ý</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label">Họ Tên<span class="required">*</span></td>
+                <td><input type="text" placeholder="Họ và tên của bạn" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label">Email<span class="required">*</span></td>
+                <td><input type="email" placeholder="Email để nhận phản hồi" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label">Số Điện Thoại</td>
+                <td><input type="tel" placeholder="Số điện thoại (tùy chọn)"/></td>
+              </tr>
+              <tr>
+                <td class="form-label">Loại Phản Hồi</td>
+                <td>
+                  <select name="feedback-type" title="Chọn loại phản hồi">
+                    <option>Chất lượng sản phẩm</option>
+                    <option>Dịch vụ vận chuyển</option>
+                    <option>Chính sách đổi trả</option>
+                    <option>Góp ý về website</option>
+                    <option>Khiếu nại</option>
+                    <option>Khen ngợi</option>
+                    <option>Khác</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Đánh Giá</td>
+                <td>
+                  <span style="color: #f4a620; font-size: 1.3rem; cursor: pointer;">★★★★★</span>
+                  <span style="font-size:0.82rem; color:#888; margin-left:8px;">(5 sao)</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label">Nội Dung Phản Hồi<span class="required">*</span></td>
+                <td><textarea placeholder="Chia sẻ trải nghiệm của bạn với Bycun..." style="min-height:120px;" required></textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="form-actions">
+                  <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Gửi Phản Hồi</button>
+                  <button type="reset" class="btn-reset"><i class="fas fa-redo"></i> Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+
+  </div><!-- /tab-content -->
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <!-- Chèn ảnh logo footer vào đây -->
+        <img src="images/logo-white.png" alt="BYCUN" class="footer-logo" onerror="this.style.display='none'"/>
+        <p class="footer-brand">ByCunClothing</p>
+        <p>Thương hiệu thời trang nữ cao cấp, phong cách hiện đại.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+          <li><a href="trang-chu.html">Trang Chủ</a></li>
+          <li><a href="san-pham.html">Sản Phẩm</a></li>
+          <li><a href="tin-tuc.html">Tin Tức</a></li>
+          </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Chính Sách</h4>
+        <ul>
+          <li><a href="#">Đổi trả hàng</a></li>
+          <li><a href="#">Bảo mật thông tin</a></li>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:0374538106">037 453 8106</a></p>
+        <p><i class="fas fa-envelope"></i> info@bycun.vn</p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function handleRegister(e) {
+    e.preventDefault();
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('registerForm').reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

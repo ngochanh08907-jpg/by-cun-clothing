@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giỏ Hàng - ByCunClothing</title>
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .checkout-steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 32px 0;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #aaa;
+    }
+    .step:first-child { border-radius: 30px 0 0 30px; }
+    .step:last-child { border-radius: 0 30px 30px 0; }
+    .step.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .step.done { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .step .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Coupon */
+    .coupon-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .coupon-row input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .coupon-row input:focus { border-color: var(--primary); }
+    .btn-coupon {
+      background: var(--dark);
+      color: #fff;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.87rem;
+      transition: background 0.2s;
+    }
+    .btn-coupon:hover { background: var(--primary); }
+
+    /* Thanh toán form */
+    .payment-form-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .payment-form-table th {
+      background: var(--dark);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .payment-form-table td {
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .payment-form-table tr:nth-child(even) td { background: var(--light-gray); }
+    .payment-form-table input,
+    .payment-form-table select,
+    .payment-form-table textarea {
+      width: 100%;
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: var(--font-body);
+      font-size: 0.87rem;
+      outline: none;
+    }
+    .payment-form-table input:focus,
+    .payment-form-table select:focus { border-color: var(--primary); }
+    .form-label-p { font-weight: 600; color: var(--dark); min-width: 150px; }
+
+    .payment-method-card {
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.88rem;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 10px;
+    }
+    .payment-method-card:hover,
+    .payment-method-card.selected { border-color: var(--primary); background: var(--primary-light); }
+    .payment-method-card i { font-size: 1.4rem; color: var(--primary); width: 30px; text-align: center; }
+    .pm-name { font-weight: 700; display: block; }
+    .pm-desc { font-size: 0.78rem; color: var(--gray); }
+
+    .order-confirmed {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      border: 1px solid #c3e6cb;
+    }
+    .order-confirmed i { font-size: 3rem; color: #28a745; margin-bottom: 16px; }
+    .order-confirmed h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--dark); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><i class="fas fa-phone-alt"></i> Hotline: <a href="tel:0374538106">037 453 8106</a></span>
+      <span><a href="dang-ky.html"><i class="fas fa-user"></i> Đăng ký thành viên</a></span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <a href="trang-chu.html" class="logo">
+        <!-- Chèn ảnh logo vào đây -->
+        <img src="images/logo.png" alt="By cun Clothing Logo" class="logo-img" onerror="this.style.display='none'"/>
+        <span class="logo-text">Bycun</span>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+        <button type="button" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+        <a href="gio-hang.html"><i class="fas fa-shopping-bag"></i><span class="badge">2</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li class="has-dropdown">
+          <a href="san-pham.html">Thời Trang Nữ <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="san-pham.html">Áo Nữ</a></li>
+            <li><a href="san-pham.html">Quần Nữ</a></li>
+            <li><a href="san-pham.html">Váy</a></li>
+          </ul>
+        </li>
+        <li><a href="tin-tuc.html">Tin Tức</a></li>
+        <li><a href="dang-ky.html">Đăng Ký</a></li>
+        <li><a href="gio-hang.html" class="active">Giỏ Hàng</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <h1>Giỏ Hàng &amp; Thanh Toán</h1>
+    <p class="breadcrumb-bar">
+      <a href="anh/baner tranggchu.png">Trang chủ</a> › Giỏ Hàng
+    </p>
+  </div>
+</div>
+
+<div class="container" style="padding: 0 15px 60px;">
+
+  <!-- Bước thanh toán -->
+  <div class="checkout-steps">
+    <div class="step done"><div class="step-num">✓</div> Chọn Sản Phẩm</div>
+    <div class="step active"><div class="step-num">2</div> Giỏ Hàng</div>
+    <div class="step"><div class="step-num">3</div> Thông Tin Giao Hàng</div>
+    <div class="step"><div class="step-num">4</div> Thanh Toán</div>
+  </div>
+
+  <div class="row">
+    <!-- Danh sách giỏ hàng -->
+    <div class="col-lg-8">
+      <div class="section-heading">
+        <h2>Giỏ Hàng Của Bạn</h2>
+        <span style="font-size:0.85rem; color:#888;">2 sản phẩm</span>
+      </div>
+
+      <!-- Bảng giỏ hàng -->
+      <div style="overflow-x: auto; margin-bottom: 24px;">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Ảnh</th>
+              <th>Sản Phẩm</th>
+              <th>Màu sắc/size</th>
+              <th>Thành tiền</th>
+              <th>Số Lượng</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <!-- Chèn ảnh sản phẩm trong giỏ hàng 1 vào đây -->
+                <img src="/anh/ao-luoi-2s-dieu-da-xinh.jpg" alt="Áo Sơ Mi" class="cart-product-img" onerror="this.style.display='none'"/>
+              </td>
+              <td class="cart-product-name">Áo Lưới 2s Điệu Đà Xing</td>
+              <td>Trắng / S</td>
+              <td style="color: var(--accent); font-weight:700;">220.000đ</td>
+              <td><input type="number" class="qty-input" value="1" min="1" max="99" title="Số lượng" aria-label="Số lượng sản phẩm 1"/></td>
+          
+              <td><button type="button" class="btn-remove" onclick="removeRow(this)" title="Xóa sản phẩm" aria-label="Xóa Áo Sơ Mi Trắng"><i class="fas fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <td>
+                <!-- Chèn ảnh sản phẩm trong giỏ hàng 2 vào đây -->
+                <img src="/anh/set-da -tweed-thiet-ke-sang-chanh.jpg" alt="Set Dạ" class="cart-product-img" onerror="this.style.display='none'"/>
+              </td>
+              <td class="cart-product-name">Set Dạ Thiết Kế Sang Chảnh</td>
+              <td>Hồng / S</td>
+              <td style="color: var(--accent); font-weight:700;">420.000đ</td>
+              <td><input type="number" class="qty-input" value="1" min="1" max="99" title="Số lượng" aria-label="Số lượng sản phẩm 2"/></td>
+              <td><button type="button" class="btn-remove" onclick="removeRow(this)" title="Xóa sản phẩm" aria-label="Xóa Váy Midi Hoa Nhí"><i class="fas fa-trash"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mã giảm giá -->
+      <div class="coupon-row">
+        <input type="text" placeholder="Nhập mã giảm giá (VD: Bycundangiu10)"/>
+        <button type="button" class="btn-coupon"><i class="fas fa-tag"></i> Áp Dụng</button>
+      </div>
+
+      <!-- Nút tiếp tục mua sắm -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+        <a href="san-pham.html" style="font-size:0.88rem; color: var(--dark); font-weight:600;">
+          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Tiếp Tục Mua Sắm
+        </a>
+        <button type="button" onclick="updateCart()" style="background: var(--primary); color:#fff; border:none; padding:10px 22px; border-radius:5px; font-weight:700; cursor:pointer; font-size:0.88rem;">
+          <i class="fas fa-sync-alt"></i> Cập Nhật Giỏ Hàng
+        </button>
+      </div>
+
+      <!-- ===== FORM THÔNG TIN THANH TOÁN (lồng trong bảng) ===== -->
+      <div class="section-heading" style="margin-top: 10px;">
+        <h2>Thông Tin Giao Hàng</h2>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handleOrder(event)">
+        <div style="overflow-x: auto; margin-bottom: 24px;">
+          <table class="payment-form-table">
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-user"></i> &nbsp; Người Nhận Hàng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label-p">Họ và Tên<span class="required">*</span></td>
+                <td><input type="text" placeholder="Tên người nhận hàng" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label-p">Số Điện Thoại<span class="required">*</span></td>
+                <td><input type="tel" placeholder="Số điện thoại liên hệ" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label-p">Email</td>
+                <td><input type="email" placeholder="Email nhận hóa đơn"/></td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-map-marker-alt"></i> &nbsp; Địa Chỉ Giao Hàng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="form-label-p">Tỉnh / Thành Phố<span class="required">*</span></td>
+                <td>
+                  <select name="city" title="Chọn tỉnh/thành phố" required>
+                    <option value="">-- Chọn tỉnh/thành --</option>
+                    <option>TP. Hồ Chí Minh</option>
+                    <option>Hà Nội</option>
+                    <option>Đà Nẵng</option>
+                    <option>Hải Phòng</option>
+                    <option>Cần Thơ</option>
+                    <option>Nha Trang</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label-p">Quận / Huyện<span class="required">*</span></td>
+                <td><input type="text" placeholder="Nhập quận/huyện" required/></td>
+              </tr>
+              <tr>
+                <td class="form-label-p">Địa Chỉ Cụ Thể<span class="required">*</span></td>
+                <td><input type="text" placeholder="Số nhà, tên đường, phường/xã" required/></td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-truck"></i> &nbsp; Phương Thức Vận Chuyển</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" style="padding: 16px;">
+                  <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer; font-weight:400;">
+                    <input type="radio" name="shipping" value="standard" checked/>
+                    <span><strong>Giao hàng tiêu chuẩn</strong> – 3~5 ngày – <span style="color: var(--accent);">30.000đ</span></span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer; font-weight:400;">
+                    <input type="radio" name="shipping" value="express"/>
+                    <span><strong>Giao hàng nhanh</strong> – 1~2 ngày – <span style="color: var(--accent);">60.000đ</span></span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:10px; cursor:pointer; font-weight:400;">
+                    <input type="radio" name="shipping" value="free"/>
+                    <span><strong>Miễn phí vận chuyển</strong> – Áp dụng đơn từ 500.000đ</span>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td class="form-label-p">Ghi Chú Đơn Hàng</td>
+                <td><textarea placeholder="Ghi chú cho người giao hàng (nếu có)..." style="min-height:80px;"></textarea></td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th colspan="2"><i class="fas fa-credit-card"></i> &nbsp; Phương Thức Thanh Toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" style="padding: 16px;">
+                  <div class="payment-method-card selected" onclick="selectPayment(this)">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div>
+                      <span class="pm-name">Thanh Toán Khi Nhận Hàng (COD)</span>
+                      <span class="pm-desc">Trả tiền mặt khi nhận hàng tại nhà</span>
+                    </div>
+                  </div>
+                  <div class="payment-method-card" onclick="selectPayment(this)">
+                    <i class="fas fa-university"></i>
+                    <div>
+                      <span class="pm-name">Chuyển Khoản Ngân Hàng</span>
+                      <span class="pm-desc">Vietcombank / Techcombank / MBBank</span>
+                    </div>
+                  </div>
+                  <div class="payment-method-card" onclick="selectPayment(this)">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                      <span class="pm-name">Ví Điện Tử (MoMo / ZaloPay)</span>
+                      <span class="pm-desc">Thanh toán nhanh qua ví điện tử</span>
+                    </div>
+                  </div>
+                  <div class="payment-method-card" onclick="selectPayment(this)">
+                    <i class="fas fa-credit-card"></i>
+                    <div>
+                      <span class="pm-name">Thẻ Tín Dụng / Ghi Nợ</span>
+                      <span class="pm-desc">Visa / Mastercard / JCB</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 16px 16px 20px; text-align:center;">
+                  <label style="font-size:0.85rem; cursor:pointer; font-weight:400;">
+                    <input type="checkbox" required style="margin-right:6px;"/>
+                    Tôi đồng ý với <a href="#" style="color: var(--primary);">điều khoản mua hàng</a> của By Cun
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center; padding: 16px; background: var(--light-gray);">
+                  <button type="submit" class="btn-submit" style="padding: 14px 50px; font-size: 1rem;">
+                    <i class="fas fa-check-circle"></i> Đặt Hàng Ngay
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+
+      <!-- Thông báo đặt hàng thành công -->
+      <div class="order-confirmed" id="orderSuccess">
+        <i class="fas fa-check-circle"></i>
+        <h3>Đặt Hàng Thành Công!</h3>
+        <p style="margin-top:10px; color: var(--gray);">Cảm ơn bạn đã mua sắm tại By Cun Clothing. Chúng tôi sẽ liên hệ xác nhận đơn hàng sớm nhất.</p>
+        <a href="trang-chu.html" class="btn-hero" style="margin-top:20px;">Tiếp Tục Mua Sắm</a>
+      </div>
+    </div>
+
+    <!-- Tổng đơn hàng -->
+    <div class="col-lg-4" style="padding-left: 24px;">
+      <div class="cart-summary" style="position: sticky; top: 20px;">
+        <h3>Tóm Tắt Đơn Hàng</h3>
+
+        <div class="summary-row">
+          <span>Tạm tính (2 sp)</span>
+          <span>640.000đ</span>
+        </div>
+        <div class="summary-row">
+          <span>Giảm giá</span>
+          <span style="color: #28a745;">- 0đ</span>
+        </div>
+        <div class="summary-row">
+          <span>Phí vận chuyển</span>
+          <span>30.000đ</span>
+        </div>
+        <div class="summary-row total">
+          <span>Tổng Cộng</span>
+          <span>670.000đ</span>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p style="font-size: 0.8rem; color: #888; margin-bottom: 10px; text-align:center;">Chúng tôi chấp nhận:</p>
+          <div style="display:flex; gap:8px; justify-content:center; font-size:1.5rem; color:#555;">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-jcb"></i>
+          </div>
+        </div>
+
+        <!-- Sản phẩm đã chọn -->
+        <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px;">
+          <p style="font-weight:700; font-size:0.88rem; margin-bottom:12px;">Sản Phẩm Đã Chọn:</p>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <!-- Chèn ảnh thumbnail sản phẩm giỏ hàng 1 vào đây -->
+            <img src="images/product-1.jpg" alt="sp1" style="width:48px; height:56px; object-fit:cover; border-radius:4px; background: var(--border);" onerror="this.style.display='none'"/>
+            <div style="font-size:0.82rem;">
+              <div style="font-weight:600;">Áo Yếm 2 Lớp</div>
+              <div style="color:#888;">Trắng / M × 1</div>
+              <div style="color: var(--accent);">220.000đ</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <!-- Chèn ảnh thumbnail sản phẩm giỏ hàng 2 vào đây -->
+            <img src="images/product-2.jpg" alt="sp2" style="width:48px; height:56px; object-fit:cover; border-radius:4px; background: var(--border);" onerror="this.style.display='none'"/>
+            <div style="font-size:0.82rem;">
+              <div style="font-weight:600;">Váy Dạ Cao Cấp </div>
+              <div style="color:#888;">Hồng / S × 1</div>
+              <div style="color: var(--accent);">420.000đ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cam kết -->
+        <div style="margin-top:20px; border-top:1px solid var(--border); padding-top:14px;">
+          <div style="font-size:0.8rem; color:#777; display:flex; flex-direction:column; gap:7px;">
+            <span><i class="fas fa-shield-alt" style="color:var(--primary); margin-right:6px;"></i>Bảo mật thông tin 100%</span>
+            <span><i class="fas fa-undo" style="color:var(--primary); margin-right:6px;"></i>Đổi trả miễn phí 30 ngày</span>
+            <span><i class="fas fa-truck" style="color:var(--primary); margin-right:6px;"></i>Giao hàng toàn quốc</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <!-- Chèn ảnh logo footer vào đây -->
+        <img src="images/logo-white.png" alt="By Cun " class="footer-logo" onerror="this.style.display='none'"/>
+        <p class="footer-brand">By Cun </p>
+        <p>Thương hiệu thời trang nữ cao cấp.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+          <li><a href="trang-chu.html">Trang Chủ</a></li>
+          <li><a href="san-pham.html">Sản Phẩm</a></li>
+          <li><a href="tin-tuc.html">Tin Tức</a></li>
+          <li><a href="dang-ky.html">Đăng Ký</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Chính Sách</h4>
+        <ul>
+          <li><a href="#">Đổi trả hàng</a></li>
+          <li><a href="#">Bảo mật thông tin</a></li>
+          <li><a href="#">Hướng dẫn thanh toán</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:0374538106">037 453 8106</a></p>
+        <p><i class="fas fa-envelope"></i> info@bycun.vn</p>
+      </div>
+    </div>
+   
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function removeRow(btn) {
+    if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+      btn.closest('tr').remove();
+    }
+  }
+  function updateCart() {
+    alert('Giỏ hàng đã được cập nhật!');
+  }
+  function selectPayment(card) {
+    document.querySelectorAll('.payment-method-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+  }
+  function handleOrder(e) {
+    e.preventDefault();
+    document.getElementById('checkoutForm').style.display = 'none';
+    document.getElementById('orderSuccess').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

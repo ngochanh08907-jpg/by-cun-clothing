@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tin Tức Thời Trang - BYCUNCLOTHING</title>
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><i class="fas fa-phone-alt"></i> Hotline: <a href="tel:0374538106">037 453 8106</a></span>
+      <span><a href="dang-ky.html"><i class="fas fa-user"></i> Đăng ký thành viên</a></span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <a href="trang-chu.html" class="logo">
+        <!-- Chèn ảnh logo vào đây -->
+        <img src="/anh/Banner thời trang nữ pastel By Cun.png" alt="BYCUNCLOTHING Logo" class="logo-img" onerror="this.style.display='none'"/>
+        <span class="logo-text">By Cun  Clothing</span>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm tin tức..."/>
+        <button type="button" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+        <a href="gio-hang.html"><i class="fas fa-shopping-bag"></i><span class="badge">2</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li class="has-dropdown">
+          <a href="san-pham.html">Thời Trang Nữ <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="ao-nu.html">Áo Nữ</a></li>
+            <li><a href="ao-khoac.html">Áo Khoác</a></li>
+            <li><a href="vay-dam.html">Váy &amp; Đầm</a></li>
+            <li><a href="do-bo.html">Đồ Bộ</a></li>
+          </ul>
+        </li>
+        <li><a href="tin-tuc.html" class="active">Tin Tức</a></li>
+        <li><a href="dang-ky.html">Đăng Ký</a></li>
+        <li><a href="gio-hang.html">Giỏ Hàng</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <h1>Tin Tức Thời Trang</h1>
+    <p class="breadcrumb-bar">
+      <a href="anh/baner tranggchu.html">Trang chủ</a> › Tin Tức
+    </p>
+  </div>
+</div>
+
+<!-- NỘI DUNG -->
+<div class="container" style="padding: 0 15px 60px;">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <aside class="col-lg-3 sidebar">
+      <div class="sidebar-box">
+        <h3 class="sidebar-title">Danh Mục Tin</h3>
+        <ul class="sidebar-menu">
+          <li><a href="#"><i class="fas fa-angle-right"></i> Xu Hướng Thời Trang</a></li>
+          <li><a href="#"><i class="fas fa-angle-right"></i> Bí Quyết Phối Đồ</a></li>
+          <li><a href="#"><i class="fas fa-angle-right"></i> Chăm Sóc Trang Phục</a></li>
+          <li><a href="#"><i class="fas fa-angle-right"></i> Thời Trang Công Sở</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3 class="sidebar-title">Bài Viết Mới Nhất</h3>
+        <div class="sidebar-news">
+          <!-- Chèn ảnh tin sidebar 1 vào đây -->
+          <img src="images/news-thumb-1.jpg" alt="Tin 1" onerror="this.style.display='none'"/>
+          <a href="#">Xu hướng màu sắc nổi bật 2026</a>
+          <span>15/10/2026</span>
+        </div>
+        <div class="sidebar-news">
+          <!-- Chèn ảnh tin sidebar 2 vào đây -->
+          <img src="images/news-thumb-2.jpg" alt="Tin 2" onerror="this.style.display='none'"/>
+          <a href="#">Cách chọn áo phù hợp vóc dáng</a>
+          <span>12/10/2026</span>
+        </div>
+        <div class="sidebar-news">
+          <!-- Chèn ảnh tin sidebar 3 vào đây -->
+          <img src="images/news-thumb-3.jpg" alt="Tin 3" onerror="this.style.display='none'"/>
+          <a href="#">Bí quyết giữ quần áo bền màu</a>
+          <span>08/10/2026</span>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <h3 class="sidebar-title">Tags Nổi Bật</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Xu hướng</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Mùa hè</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Phối đồ</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Công sở</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Váy đẹp</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">By Cun Clothing</a>
+          <a href="#" style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--primary);">Sale</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Nội dung tin tức -->
+    <section class="col-lg-9 main-content">
+
+      <!-- Tin nổi bật (Bootstrap) -->
+      <div class="section-heading">
+        <h2>Tin Nổi Bật</h2>
+      </div>
+
+      <!-- Bài viết lớn (Bootstrap card) -->
+      <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px; overflow:hidden;">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <!-- Chèn ảnh bài viết nổi bật vào đây -->
+            <img src="/anh/top10xhthoitrang.jpg" class="img-fluid" alt="Tin nổi bật"
+              style="height: 260px; object-fit:cover; width:100%; background: var(--border);"
+              onerror="this.style.display='none'"/>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body p-4">
+              <span style="background: var(--primary); color:#fff; font-size:0.72rem; padding:3px 10px; border-radius:3px; font-weight:700; text-transform:uppercase;">XU HƯỚNG</span>
+              <h3 style="font-family: var(--font-display); font-size:1.25rem; margin: 12px 0 8px; line-height:1.4;">
+                Top 10 Xu Hướng Thời Trang Nữ Không Thể Bỏ Qua Trong Năm 2026
+              </h3>
+              <p style="font-size:0.88rem; color:var(--gray); margin-bottom:14px; line-height:1.7;">
+                Năm 2026 hứa hẹn sẽ là một năm đầy màu sắc và phong cách cho thời trang nữ. Từ những gam màu dịu dàng đến các thiết kế năng động, By Cun Clothing tổng hợp những xu hướng không thể bỏ lỡ.
+              </p>
+              <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.82rem; color:#999;">
+                <span><i class="fas fa-user" style="margin-right:4px;"></i>By Cun Team</span>
+                <span><i class="fas fa-calendar" style="margin-right:4px;"></i>5/10/2026</span>
+                <span><i class="fas fa-eye" style="margin-right:4px;"></i>3.289 lượt xem</span>
+              </div>
+              <a href="#" class="btn-cart" style="display:inline-block; margin-top:14px; padding: 8px 20px; border-radius: 5px;">Đọc Tiếp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danh sách không đánh số: chủ đề nổi bật -->
+      <div class="section-heading">
+        <h2>Chủ Đề Hot Tháng Này</h2>
+      </div>
+      <ul class="list-style bullet" style="margin-bottom: 32px;">
+      <li>Chất liệu Dạ Tweed lên ngôi – Biểu tượng thanh lịch cho bộ sưu tập Mùa Thu Đông</li>
+      <li>Xu hướng "Tiểu Thư Nhẹ Nhàng" – Phong cách thiết kế bèo voan tơ tôn dáng tuyệt đối</li>
+      <li>Set Áo Dạ Mix Chân Váy – Cơn sốt phối đồ nhanh gọn, thanh lịch nơi công sở và dạo phố</li>
+      <li>Sắc trắng & Kem Pastel – Gam màu chủ đạo nâng tầm khí chất người mặc</li>
+      <li>Sự trở lại của Áo Khoác Dạ Cúc Đồng – Điểm nhấn cổ điển cho trang phục hiện đại</li>
+      <li>Nghệ thuật phối layer – Phối áo lưới 2s cách điệu cùng áo trễ vai bèo tầng sang chảnh</li>
+      </ul>
+      <!-- Danh sách có đánh số: bí quyết -->
+      <div class="section-heading">
+        <h2>7 Bí Quyết Phối Đồ Hay Nhất</h2>
+      </div>
+      <ol>
+       <li>Diện set váy dạ Tweed nguyên bộ sang trọng.</li>
+      <li>Áo khoác dạ cúc đồng kết hợp boot cổ cao.</li>
+      <li>Áo trễ vai voan tơ tôn bờ vai quyến rũ.</li>
+      <li>Phối layer áo lưới 2s cùng cardigan mỏng.</li>
+      <li>Ưu tiên gam màu kem và trắng pastel dịu dàng.</li>
+      <li>Túi quai xích tạo điểm nhấn cho đồ dạ.</li>
+      <li>Chi tiết nơ bèo nữ tính thu hút mọi ánh nhìn.</li>
+      </ol>
+      
+      <!-- Lưới tin tức (2 cột) -->
+      <div class="section-heading">
+        <h2>Tất Cả Tin Tức</h2>
+      </div>
+      <div class="news-list-grid">
+
+        <div class="news-item-card">
+          <!-- Chèn ảnh tin tức 1 vào đây -->
+          <img src="/anh/màu pastel" alt="Tin 1" onerror="this.style.display='none'"/>
+          <div class="news-item-body">
+            <span class="news-cat">Xu Hướng</span>
+            <h4><a href="#">Màu Pastel Trở Lại Mạnh Mẽ Hè 2026</a></h4>
+            <p>Những gam màu nhẹ nhàng như hồng phấn, xanh mint, vàng kem đang chiếm lĩnh các bộ sưu tập mới nhất...</p>
+            <span style="font-size:0.78rem; color:#aaa;"><i class="fas fa-calendar"></i> 8/10/2026</span>
+          </div>
+        </div>
+
+        <div class="news-item-card">
+          <!-- Chèn ảnh tin tức 2 vào đây -->
+          <img src="/anh/phối đồ công sở.jpg" alt="Tin 2" onerror="this.style.display='none'"/>
+          <div class="news-item-body">
+            <span class="news-cat">Phối Đồ</span>
+            <h4><a href="#">Bí Quyết Phối Đồ Công Sở Thanh Lịch</a></h4>
+            <p>Làm thế nào để vừa chuyên nghiệp vừa thời trang trong môi trường công sở? By Cun gợi ý cho bạn...</p>
+            <span style="font-size:0.78rem; color:#aaa;"><i class="fas fa-calendar"></i> 10/10/2026</span>
+          </div>
+        </div>
+
+        <div class="news-item-card">
+          <!-- Chèn ảnh tin tức 3 vào đây -->
+          <img src="/anh/cách giặt và bảo quản quần áo.jpg" alt="Tin 3" onerror="this.style.display='none'"/>
+          <div class="news-item-body">
+            <span class="news-cat">Chăm Sóc</span>
+            <h4><a href="#">Cách Giặt &amp; Bảo Quản Quần Áo Đúng Cách</a></h4>
+            <p>Bảo quản quần áo đúng cách giúp trang phục luôn mới và bền màu, tiết kiệm chi phí dài hạn...</p>
+            <span style="font-size:0.78rem; color:#aaa;"><i class="fas fa-calendar"></i> 05/04/2026</span>
+          </div>
+        </div>
+
+        <div class="news-item-card">
+          <!-- Chèn ảnh tin tức 6 vào đây -->
+          <img src="/anh/váy đẹp cho mùa hè.jpg" alt="Tin 6" onerror="this.style.display='none'"/>
+          <div class="news-item-body">
+            <span class="news-cat">Xu Hướng</span>
+            <h4><a href="#">Váy Đẹp Nhất Cho Mùa Hè Rực Rỡ 2026</a></h4>
+            <p>Những mẫu váy không thể thiếu trong tủ đồ của mọi cô gái mùa hè năm nay cùng By Cun...</p>
+            <span style="font-size:0.78rem; color:#aaa;"><i class="fas fa-calendar"></i> 20/03/2026</span>
+          </div>
+        </div>
+
+      </div><!-- /news-list-grid -->
+
+      <!-- Phân trang Bootstrap -->
+      <nav aria-label="Phân trang" class="mt-3">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+          <li class="page-item active"><a class="page-link" href="#" style="background: var(--primary); border-color: var(--primary);">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">»</a></li>
+        </ul>
+      </nav>
+
+    </section>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <!-- Chèn ảnh logo footer vào đây -->
+        <img src="images/logo-white.png" alt="ByCunClothing" class="footer-logo" onerror="this.style.display='none'"/>
+        <p class="footer-brand">BY CUN</p>
+        <p>Thương hiệu thời trang nữ cao cấp.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+          <li><a href="trang-chu.html">Trang Chủ</a></li>
+          <li><a href="san-pham.html">Sản Phẩm</a></li>
+          <li><a href="tin-tuc.html">Tin Tức</a></li>
+          </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Chính Sách</h4>
+        <ul>
+          <li><a href="#">Đổi trả hàng</a></li>
+          <li><a href="#">Bảo mật thông tin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:0374538106">037 453 8106</a></p>
+        <p><i class="fas fa-envelope"></i> info@bycun.vn</p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
